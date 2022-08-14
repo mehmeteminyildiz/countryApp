@@ -48,6 +48,15 @@ class FeedFragment : Fragment() {
         binding.apply {
             rvCountryList.layoutManager = LinearLayoutManager(context)
             rvCountryList.adapter = countryAdapter
+
+            swipeRefreshLayout.setOnRefreshListener {
+                rvCountryList.visibility = View.GONE
+                tvCountryError.visibility = View.GONE
+                progressBarCountryLoading.visibility = View.VISIBLE
+                swipeRefreshLayout.isRefreshing = false
+                viewModel.refreshData()
+            }
+
             observeLiveData()
 
 

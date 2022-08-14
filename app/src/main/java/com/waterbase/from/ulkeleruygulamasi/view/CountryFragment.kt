@@ -61,7 +61,6 @@ class CountryFragment : Fragment() {
                     tvRegion.text = country.region
                     tvCurrency.text = country.currency
                     tvLanguage.text = country.language
-                    // imgFlag.
                 }
             }
 
