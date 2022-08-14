@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/countryFragment"
-        android:name="com.waterbase.from.ulkeleruygulamasi.CountryFragment"
+        android:name="com.waterbase.from.ulkeleruygulamasi.view.CountryFragment"
         android:label="fragment_country">
         <action
             android:id="@+id/action_countryFragment_to_feedFragment"
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.waterbase.from.ulkeleruygulamasi.FeedFragment"
+        android:name="com.waterbase.from.ulkeleruygulamasi.view.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" >
         <action

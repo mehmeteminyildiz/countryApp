@@ -6,6 +6,7 @@
         <entry key="..\:/calismalar/Kotlin/atil_samancioglu/project/ileri_seviye_dersler/2_ulkeler/app/src/main/res/layout/activity_main.xml" value="0.25677083333333334" />
         <entry key="..\:/calismalar/Kotlin/atil_samancioglu/project/ileri_seviye_dersler/2_ulkeler/app/src/main/res/layout/fragment_country.xml" value="0.25677083333333334" />
         <entry key="..\:/calismalar/Kotlin/atil_samancioglu/project/ileri_seviye_dersler/2_ulkeler/app/src/main/res/layout/fragment_feed.xml" value="0.25677083333333334" />
+        <entry key="..\:/calismalar/Kotlin/atil_samancioglu/project/ileri_seviye_dersler/2_ulkeler/app/src/main/res/layout/item_country.xml" value="0.25677083333333334" />
       </map>
     </option>
   </component>
@@ -14,5 +15,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25677083333333334" />
+      </ProjectState>
+    </option>
   </component>
 </project>
