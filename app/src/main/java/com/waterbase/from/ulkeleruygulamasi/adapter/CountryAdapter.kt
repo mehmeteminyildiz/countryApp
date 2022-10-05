@@ -2,15 +2,14 @@ package com.waterbase.from.ulkeleruygulamasi.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.waterbase.from.ulkeleruygulamasi.databinding.ItemCountryBinding
 import com.waterbase.from.ulkeleruygulamasi.model.Country
+import com.waterbase.from.ulkeleruygulamasi.util.placeholderProgressBar
+import com.waterbase.from.ulkeleruygulamasi.util.setImageWithURL
 import com.waterbase.from.ulkeleruygulamasi.view.FeedFragmentDirections
-import timber.log.Timber
 
 class CountryAdapter() :
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
@@ -36,9 +35,13 @@ class CountryAdapter() :
             //imgFlag   tvCountryName   tvRegion
             tvCountryName.text = list[position].name
             tvRegion.text = list[position].region
+            imgFlag.setImageWithURL(
+                list[position].imageURL,
+                placeholderProgressBar(holder.itemView.context)
+            )
         }
         holder.itemView.setOnClickListener {
-            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment()
+            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment(countryUuid = list[position].uuid)
             Navigation.findNavController(it).navigate(action)
         }
     }

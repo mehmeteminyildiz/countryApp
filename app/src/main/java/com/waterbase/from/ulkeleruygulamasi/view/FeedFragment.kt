@@ -18,14 +18,11 @@ class FeedFragment : Fragment() {
     private lateinit var viewModel: FeedViewModel
     private val countryAdapter = CountryAdapter()
 
-
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -36,7 +33,6 @@ class FeedFragment : Fragment() {
         val view = binding.root
         return view
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,7 +50,7 @@ class FeedFragment : Fragment() {
                 tvCountryError.visibility = View.GONE
                 progressBarCountryLoading.visibility = View.VISIBLE
                 swipeRefreshLayout.isRefreshing = false
-                viewModel.refreshData()
+                viewModel.refreshFromAPI()
             }
 
             observeLiveData()
@@ -70,8 +66,8 @@ class FeedFragment : Fragment() {
                 binding.rvCountryList.visibility = View.VISIBLE
                 countryAdapter.updateCountryList(countries)
             }
-
-        })
+        }
+        )
 
         viewModel.countryError.observe(viewLifecycleOwner, Observer { error ->
             error?.let {

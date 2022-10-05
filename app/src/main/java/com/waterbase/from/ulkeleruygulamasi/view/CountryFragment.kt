@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.waterbase.from.ulkeleruygulamasi.databinding.FragmentCountryBinding
+import com.waterbase.from.ulkeleruygulamasi.util.placeholderProgressBar
+import com.waterbase.from.ulkeleruygulamasi.util.setImageWithURL
 import com.waterbase.from.ulkeleruygulamasi.viewmodel.CountryViewModel
 import timber.log.Timber
 
@@ -38,15 +40,17 @@ class CountryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(CountryViewModel::class.java)
-        viewModel.getDataFromRoom()
-
-        observeLiveData()
-
         arguments?.let {
             countryUuid = CountryFragmentArgs.fromBundle(it).countryUuid
             Timber.e("gelen id : $countryUuid")
         }
+
+        viewModel = ViewModelProvider(this).get(CountryViewModel::class.java)
+        viewModel.getDataFromRoom(countryUuid)
+
+        observeLiveData()
+
+
         binding.apply {
 
         }
@@ -61,11 +65,14 @@ class CountryFragment : Fragment() {
                     tvRegion.text = country.region
                     tvCurrency.text = country.currency
                     tvLanguage.text = country.language
+
+                    imgFlag.setImageWithURL(
+                        country.imageURL,
+                        placeholderProgressBar(requireContext())
+                    )
                 }
             }
 
         })
     }
-
-
 }
